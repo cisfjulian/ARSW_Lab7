@@ -11,13 +11,17 @@
     <link rel="stylesheet" href="CSS/style.css">
     <script src="js/apimock.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/apiclient.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
 </head>
 
 <body>
 <h1 class="titulo">Blueprints</h1>
 <div class="author">
     <span>Author</span><input id="author">
-    <button onclick="app.publicMethod()">Get Blueprints</button>
+    <button onclick="app.getNameAuthorBlueprints()">Get Blueprints</button>
 </div>
 <div class="grid">
     <div class="tabla">
@@ -35,6 +39,10 @@
             </tbody>
         </table>
         <h2 id="points">Total Points</h2>
+    </div>
+    <div class="canva">
+        <h2 id="nameblu"></h2>
+        <canvas id="myCanvas" width="400" height="400" style="border:1px solid #000000;"></canvas>
     </div>
 </div>
 </body>
