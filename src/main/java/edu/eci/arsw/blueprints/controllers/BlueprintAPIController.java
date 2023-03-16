@@ -89,6 +89,12 @@ public class BlueprintAPIController {
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
+    @RequestMapping(path = "/{author}/{bpname}", method = RequestMethod.DELETE,produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> deleteBlueprint(@PathVariable String author, @PathVariable String bpname) throws BlueprintNotFoundException {
+        bps.deleteBlueprint(author, bpname);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+
 
 }
 

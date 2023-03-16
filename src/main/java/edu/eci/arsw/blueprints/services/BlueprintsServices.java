@@ -6,6 +6,7 @@
 package edu.eci.arsw.blueprints.services;
 
 import edu.eci.arsw.blueprints.model.Blueprint;
+import edu.eci.arsw.blueprints.model.Point;
 import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
 import edu.eci.arsw.blueprints.persistence.BlueprintPersistenceException;
 import edu.eci.arsw.blueprints.persistence.BlueprintsPersistence;
@@ -13,6 +14,7 @@ import edu.eci.arsw.blueprints.persistence.Filter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -62,4 +64,11 @@ public class BlueprintsServices {
         return fil.filter(bp);
     }
 
+    public void updatePoints(String author, String bpname, List<Point> points) {
+        bpp.updatePoints(author, bpname, points);
+    }
+
+    public void deleteBlueprint(String author, String bpname) {
+        bpp.deleteBlueprint(author, bpname);
+    }
 }

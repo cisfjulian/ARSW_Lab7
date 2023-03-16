@@ -1,6 +1,6 @@
 //si se quiere que funcione con el apiclient solo se debe
 //cambiar en la linea de aqui abajo por apiclient o visceversa
-let appX = apimock;
+var apiclient = apiclient;
 
 
 var app = (function (){
@@ -16,7 +16,7 @@ var app = (function (){
         if (author === "") {
             alert("Debe ingresar un nombre");
         } else {
-            appX.getBlueprintsByAuthor(author,parceroData);
+            apiclient.getBlueprintsByAuthor(author,parceroData);
         }
      }
 
@@ -51,7 +51,7 @@ var app = (function (){
                  author = $("#author").val();
                  blueprintName = data.id;
                  $("#nameblu").text("Current blueprint: " + blueprintName);
-                 appX.getBlueprintsByNameAndAuthor(author, blueprintName, drawbluep);
+                 apiclient.getBlueprintsByNameAndAuthor(author, blueprintName, drawbluep);
              }
          function drawbluep(data) {
                  const puntos = data.points;
