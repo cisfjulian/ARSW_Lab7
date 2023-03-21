@@ -16,11 +16,11 @@ var app = (function (){
         if (author === "") {
             alert("Debe ingresar un nombre");
         } else {
-            apiclient.getBlueprintsByAuthor(author,parceroData);
+            apiclient.getBlueprintsByAuthor(author,Data);
         }
      }
 
-     var parceroData = function( data) {
+     var Data = function( data) {
          $("#table tbody").empty();
          if (data === undefined) {
              alert("No existe el autor");
@@ -71,7 +71,31 @@ var app = (function (){
                  ctx.stroke();
              }
 
+         function deleteBp(){
+                  apiclient.deleteBp(author, blueprintName).then(() => {
+                  deleteCanvas();
+                  getNameAuthorBlueprints();
+                  })
+                  .catch(err => console.log(err))
+                  }
+
+         function deleteCanvas(){
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.clearRect(0, 0, c.width, c.height);
+                  }
+
+         function createBp(){
+            var bpName = prompt("Por favor digite el nombre del plano", "")
+            apiclient.createBp(author, bpName).then(()=>{
+                getNameAuthorBlueprints();
+            })
+            .catch(err => console.log(err))
+         }
+
      return{
+        createBp: createBp,
+        deleteBp: deleteBp,
         getBlueprintByAuthorAndName:getBlueprintByAuthorAndName,
         getNameAuthorBlueprints: getNameAuthorBlueprints
      }

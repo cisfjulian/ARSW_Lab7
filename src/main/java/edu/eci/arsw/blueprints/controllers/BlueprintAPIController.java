@@ -82,10 +82,7 @@ public class BlueprintAPIController {
 
     @RequestMapping(path = "/{author}/{bpname}", method = RequestMethod.PUT,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> putBlueprint(@PathVariable String author, @PathVariable String bpname, @RequestBody Blueprint blueprint) throws BlueprintNotFoundException {
-        Blueprint blueprint1 = bps.getBlueprint(author, bpname);
-        blueprint1.setAuthor(blueprint.getAuthor());
-        blueprint1.setName(blueprint.getName());
-        blueprint1.setPoints(blueprint.getPoints());
+        bps.updatePoints(author, bpname, blueprint.getPoints());
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
